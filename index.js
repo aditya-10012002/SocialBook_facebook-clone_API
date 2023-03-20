@@ -7,6 +7,7 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const multer = require('multer');
 const path = require('path');
+const cors = require('cors');
 
 const userRoute = require('./routes/users');
 const authRoute = require('./routes/auth');
@@ -27,6 +28,7 @@ app.use("/images", express.static(path.join(__dirname, "public/images")));
 app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
+app.use(cors());
 
 const upload = multer({ storage });
 
